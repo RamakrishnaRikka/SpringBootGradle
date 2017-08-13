@@ -16,7 +16,7 @@ public class User {
 	public String name;
 	@Column(name = "password")
 	public String password;
-	@Column(name = "shopName")
+	/*@Column(name = "shopName")
 	public String shopName;
 	@Column(name = "Address")
 	public String Address;
@@ -34,7 +34,7 @@ public class User {
 	public String typeOfUser;
 	@Column(name = "email")
 	public String email;
-	
+*/	
 	
 
 	public int getId() {
@@ -61,7 +61,7 @@ public class User {
 		this.password = password;
 	}
 
-	public String getShopName() {
+/*	public String getShopName() {
 		return shopName;
 	}
 
@@ -132,12 +132,17 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+*/
 	public User() {
 		super();
 	}
 
-	public User(int id, String name, String password,String shopName, String Address, String role,
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", password=" + password + "]";
+	}
+
+/*	public User(int id, String name, String password,String shopName, String Address, String role,
 			String phoneNum1, String phoneNum2, String licenseNumber, String salesPerson, String typeOfUser, String email) {
 		super();
 		this.id = id;
@@ -152,6 +157,7 @@ public class User {
 		this.typeOfUser = typeOfUser;
 		this.email = email;
 	}
-
+*/
+	
 	
 }
