@@ -13,7 +13,7 @@ public interface LoginRepository extends JpaRepository<User, Integer> {
 	@Query(value = "Select id, name from Product Where name = :name", nativeQuery = true)
 	Login findByName(@Param("name") String name);
 
-	@Query(value = "Select id, name from User Where name = :name", nativeQuery = true)
+	@Query(value = "Select id, name from User Where name = :name" , nativeQuery = true)
 	//Login findByNamePassword(@Param("name") String name,@Param("password") String password);
 	Login findByNamePassword(@Param("name") String name);
 }

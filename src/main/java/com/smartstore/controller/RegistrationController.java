@@ -24,6 +24,12 @@ public class RegistrationController {
 		return registrationService.registerUser(user);
 	}
 
+	@PostMapping("/login")
+	public String loginUser(@RequestBody User user) {
+		System.out.println("login request user from angular 2 code : --" + user);
+		return registrationService.loginUser(user);
+	}
+	
 	/*
 	 * @GetMapping("/product/{id}") public Product getProductbyId(@PathVariable
 	 * Integer id) { return productService.getProductbyId(id); }

@@ -12,4 +12,6 @@ public interface RegistrationRepository extends JpaRepository<User, Integer> {
 	@Query(value = "Select id, name from User Where name = :name", nativeQuery = true)
 	User findByName(@Param("name") String name);
 
+	
+	
 }

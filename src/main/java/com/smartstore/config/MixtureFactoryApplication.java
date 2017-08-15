@@ -20,6 +20,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = "com.smartstore")
 public class MixtureFactoryApplication {
 	public static void main(String[] args) {
+		System.out.println("coming");
 		SpringApplication.run(MixtureFactoryApplication.class, args);
 	}
 }

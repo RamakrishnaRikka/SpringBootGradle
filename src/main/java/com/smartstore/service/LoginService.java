@@ -14,11 +14,8 @@ public class LoginService {
 	@Autowired
 	LoginRepository  loginRepository;
 	
-	public boolean getProductbyId(String name, String password) {
-		 Login login = loginRepository.findByNamePassword(name);
-		 if (login==null)
-			 return false;
-		 return true;
-		 
+	public void getProductbyId(Login login) {
+		 loginRepository.findByNamePassword("");
+		  
 	}
 }
