@@ -7,7 +7,6 @@ import javax.persistence.Id;
 @Entity
 public class Login {
 
-
 	@Id
 	@Column(name = "id")
 	public int id;
@@ -16,9 +15,6 @@ public class Login {
 	public String name;
 	@Column(name = "password")
 	public String password;
-	
-	
-	
 
 	public int getId() {
 		return id;
@@ -55,5 +51,4 @@ public class Login {
 		this.password = password;
 	}
 
-	
 }

@@ -19,28 +19,22 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 
-
 	@PostMapping("/user")
 	public Login isUserExist(@RequestBody Login login) {
-		 //loginService.getProductbyId(login);
+		// loginService.getProductbyId(login);
 		return new Login();
-		/* Login isExist =loginService.getProductbyId(login);
-		if(isExist!=null)
-			return true;
-		return false;
-		*/
-	}
-	
-	
-	/*
-	@GetMapping("/products/{name}")
-	public Product getProductbyName(@PathVariable String name) {
-		return productService.getProductbyName(name);
+		/*
+		 * Login isExist =loginService.getProductbyId(login); if(isExist!=null)
+		 * return true; return false;
+		 */
 	}
 
-	@GetMapping("/products")
-	public List<Product> getAllProduct() {
-		return productService.getAllProduct();
-	}
-	*/
+	/*
+	 * @GetMapping("/products/{name}") public Product
+	 * getProductbyName(@PathVariable String name) { return
+	 * productService.getProductbyName(name); }
+	 * 
+	 * @GetMapping("/products") public List<Product> getAllProduct() { return
+	 * productService.getAllProduct(); }
+	 */
 }

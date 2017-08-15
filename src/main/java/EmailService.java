@@ -1,4 +1,4 @@
-import java.util.*;
+/*import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
@@ -42,3 +42,4 @@ public class EmailService
 		     } catch (MessagingException e) {e.printStackTrace();}  
 		 }  
 }
+*/

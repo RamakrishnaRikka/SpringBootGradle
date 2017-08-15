@@ -29,7 +29,7 @@ public class RegistrationController {
 		System.out.println("login request user from angular 2 code : --" + user);
 		return registrationService.loginUser(user);
 	}
-	
+
 	/*
 	 * @GetMapping("/product/{id}") public Product getProductbyId(@PathVariable
 	 * Integer id) { return productService.getProductbyId(id); }

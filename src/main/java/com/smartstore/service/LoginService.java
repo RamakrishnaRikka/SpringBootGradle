@@ -12,10 +12,10 @@ import com.smartstore.repository.RegistrationRepository;
 public class LoginService {
 
 	@Autowired
-	LoginRepository  loginRepository;
-	
+	LoginRepository loginRepository;
+
 	public void getProductbyId(Login login) {
-		 loginRepository.findByNamePassword("");
-		  
+		loginRepository.findByNamePassword("");
+
 	}
 }
