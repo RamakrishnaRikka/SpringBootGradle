@@ -12,3 +12,8 @@ INSERT INTO product(id,name) VALUES (10,'Spice10');
 INSERT INTO User(id,name,password) VALUES (10,'ak','ak');
 INSERT INTO User(id,name,password) VALUES (11,'rk','rk');
 INSERT INTO User(id,name,password) VALUES (12,'bk','bk');
+
+
+
+
+INSERT INTO ContactUs(id,name,message) VALUES (12,'bijaya','lests finishProject');

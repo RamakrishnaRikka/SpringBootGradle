@@ -16,4 +16,11 @@ create table User(
       typeOfUser varchar_ignorecase(50),
       email varchar_ignorecase(50)
       );
+   create table ContactUs(
+      id int not null primary key,
+      name varchar_ignorecase(50),
+      email varchar_ignorecase(50),
+      subject varchar_ignorecase(50),
+      message varchar_ignorecase(50)
+      );
     
