@@ -23,9 +23,9 @@ public class RegistrationService {
 
 	@SuppressWarnings("unchecked")
 	public String loginUser(User user) {
-		System.out.println("name=====" + user.name);
-		List user1 = registrationRepository.findByName(user.name);
-		
+		System.out.println("name=====" + user.getName());
+		List user1 = registrationRepository.findByName(user.getName());
+
 		if (user1.isEmpty()) {
 			System.out.println("User does not exist -" + user1);
 			return "false";

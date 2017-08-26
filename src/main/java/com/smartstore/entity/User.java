@@ -1,63 +1,86 @@
 package com.smartstore.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.io.Serializable;
+import javax.persistence.*;
+import java.util.List;
 
+/**
+ * The persistent class for the users database table.
+ * 
+ */
 @Entity
-public class User {
+@Table(name = "user")
+@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	@Column(name = "id")
-	public int id;
+	private int id;
 
-	@Column(name = "name")
-	public String name;
+	private String address;
 
-	@Column(name = "password")
-	public String password;
+	private String email;
 
-	@Column(name = "shopname")
-	public String shopName;
+	private String licensenumber;
 
-	// @Column(name = "\"address\"")
-	@Column(name = "address")
-	public String address;
+	private String name;
 
-	@Column(name = "role")
-	public String role;
+	private String password;
 
-	@Column(name = "phonenum1")
-	public String phoneNum1;
+	private String phonenum1;
 
-	@Column(name = "phonenum2")
-	public String phoneNum2;
+	private String phonenum2;
 
-	@Column(name = "licensenumber")
-	public String licenseNumber;
+	private String role;
 
-	@Column(name = "salesperson")
-	public String salesPerson;
+	private String salesperson;
 
-	@Column(name = "typeofuser")
-	public String typeOfUser;
+	private String shopname;
 
-	@Column(name = "email")
-	public String email;
+	private String typeofuser;
+
+	// bi-directional many-to-one association to Order
+	@OneToMany(mappedBy = "user")
+	private List<Order> orders;
+
+	public User() {
+	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	public String getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLicensenumber() {
+		return this.licensenumber;
+	}
+
+	public void setLicensenumber(String licensenumber) {
+		this.licensenumber = licensenumber;
+	}
+
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -65,91 +88,81 @@ public class User {
 	}
 
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getShopName() {
-		return shopName;
+	public String getPhonenum1() {
+		return this.phonenum1;
 	}
 
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
+	public void setPhonenum1(String phonenum1) {
+		this.phonenum1 = phonenum1;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getPhonenum2() {
+		return this.phonenum2;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setPhonenum2(String phonenum2) {
+		this.phonenum2 = phonenum2;
 	}
 
 	public String getRole() {
-		return role;
+		return this.role;
 	}
 
 	public void setRole(String role) {
 		this.role = role;
 	}
 
-	public String getPhoneNum1() {
-		return phoneNum1;
+	public String getSalesperson() {
+		return this.salesperson;
 	}
 
-	public void setPhoneNum1(String phoneNum1) {
-		this.phoneNum1 = phoneNum1;
+	public void setSalesperson(String salesperson) {
+		this.salesperson = salesperson;
 	}
 
-	public String getPhoneNum2() {
-		return phoneNum2;
+	public String getShopname() {
+		return this.shopname;
 	}
 
-	public void setPhoneNum2(String phoneNum2) {
-		this.phoneNum2 = phoneNum2;
+	public void setShopname(String shopname) {
+		this.shopname = shopname;
 	}
 
-	public String getLicenseNumber() {
-		return licenseNumber;
+	public String getTypeofuser() {
+		return this.typeofuser;
 	}
 
-	public void setLicenseNumber(String licenseNumber) {
-		this.licenseNumber = licenseNumber;
+	public void setTypeofuser(String typeofuser) {
+		this.typeofuser = typeofuser;
 	}
 
-	public String getSalesPerson() {
-		return salesPerson;
+	public List<Order> getOrders() {
+		return this.orders;
 	}
 
-	public void setSalesPerson(String salesPerson) {
-		this.salesPerson = salesPerson;
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
-	public String getTypeOfUser() {
-		return typeOfUser;
+	public Order addOrder(Order order) {
+		getOrders().add(order);
+		order.setUser(this);
+
+		return order;
 	}
 
-	public void setTypeOfUser(String typeOfUser) {
-		this.typeOfUser = typeOfUser;
-	}
+	public Order removeOrder(Order order) {
+		getOrders().remove(order);
+		order.setUser(null);
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password + ", shopName=" + shopName + ", address="
-				+ address + ", role=" + role + ", phoneNum1=" + phoneNum1 + ", phoneNum2=" + phoneNum2
-				+ ", licenseNumber=" + licenseNumber + ", salesPerson=" + salesPerson + ", typeOfUser=" + typeOfUser
-				+ ", email=" + email + "]";
+		return order;
 	}
 
 }

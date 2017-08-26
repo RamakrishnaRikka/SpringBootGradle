@@ -1,48 +1,99 @@
 package com.smartstore.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.io.Serializable;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
+/**
+ * The persistent class for the products database table.
+ * 
+ */
 @Entity
-public class Product {
+@Table(name = "products")
+@NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")
+public class Product implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id")
-	public int id;
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "product_id")
+	private int productId;
 
-	@Column(name = "name")
-	public String name;
+	@Column(name = "product_name")
+	private String productName;
 
-	public Product() {
-		super();
+	@Column(name = "product_price")
+	private float productPrice;
+
+	@Column(name = "product_weight")
+	private String productWeight;
+
+	private String picture;
+
+	// bi-directional many-to-one association to OrderDetail
+	/*
+	 * @OneToMany(mappedBy = "product") private List<OrderDetail> orderDetails;
+	 */
+
+	/*
+	 * public Product() { }
+	 */
+
+	public int getProductId() {
+		return this.productId;
 	}
 
-	public Product(int id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 
-	public int getId() {
-		return id;
+	public String getPicture() {
+		return this.picture;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setPicture(String picture) {
+		this.picture = picture;
 	}
 
-	public String getName() {
-		return name;
+	public String getProductName() {
+		return this.productName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + "]";
+	public float getProductPrice() {
+		return this.productPrice;
+	}
+
+	public void setProductPrice(float productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	/*
+	 * public List<OrderDetail> getOrderDetails() { return this.orderDetails; }
+	 * 
+	 * public void setOrderDetails(List<OrderDetail> orderDetails) {
+	 * this.orderDetails = orderDetails; }
+	 * 
+	 * public OrderDetail addOrderDetail(OrderDetail orderDetail) {
+	 * getOrderDetails().add(orderDetail); orderDetail.setProduct(this);
+	 * 
+	 * return orderDetail; }
+	 * 
+	 * public OrderDetail removeOrderDetail(OrderDetail orderDetail) {
+	 * getOrderDetails().remove(orderDetail); orderDetail.setProduct(null);
+	 * 
+	 * return orderDetail; }
+	 */
+	public String getProductWeight() {
+		return productWeight;
+	}
+
+	public void setProductWeight(String productWeight) {
+		this.productWeight = productWeight;
 	}
 
 }

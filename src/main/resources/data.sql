@@ -1,13 +1,7 @@
-INSERT INTO product(id,name) VALUES (1,'Spice1');
-INSERT INTO product(id,name) VALUES (2,'Sweet2');
-INSERT INTO product(id,name) VALUES (3,'Crispy3');
-INSERT INTO product(id,name) VALUES (4,'Spice4');
-INSERT INTO product(id,name) VALUES (5,'Sweet5');
-INSERT INTO product(id,name) VALUES (6,'Crispy6');
-INSERT INTO product(id,name) VALUES (7,'Spice7');
-INSERT INTO product(id,name) VALUES (8,'Sweet8');
-INSERT INTO product(id,name) VALUES (9,'Crispy9');
-INSERT INTO product(id,name) VALUES (10,'Spice10');
+INSERT INTO products(product_id,product_name,product_price,product_weight,picture) VALUES (1,'Chana Dal',100,250,'http://2.wlimg.com/product_images/bc-full/dir_19/552399/chana-dal-namkeen-1285259.jpg');
+INSERT INTO products(product_id,product_name,product_price,product_weight,picture) VALUES (2,'Moong Dal',140,250,'https://i.ytimg.com/vi/5bO3ouBAlGQ/maxresdefault.jpg');
+INSERT INTO products(product_id,product_name,product_price,product_weight,picture) VALUES (3,'Aloo Bhujia',120,250,'http://www.manjulaskitchen.com/blog/wp-content/uploads/aloo_bhujia_potato_sev.jpg');
+
 
 INSERT INTO User(id,name,password) VALUES (10,'ak','ak');
 INSERT INTO User(id,name,password) VALUES (11,'rk','rk');
