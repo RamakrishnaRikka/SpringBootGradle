@@ -55,4 +55,15 @@ constraint FK_productId foreign key(product_id) references products(product_id),
 constraint FK_paymentId foreign key(payment_id) references payments(payment_id)
 );      
       
+create table product_details(productdetails_id int not null primary key,
+product_id int, 
+product_name varchar_ignorecase(50),
+product_price float,
+product_weight int,
+units_in_stock int,
+product_date date,
+product_expiry_date date,
+product_description varchar_ignorecase(100),
+constraint FK_PIDdetails foreign key(product_id) references products(product_id)
+);
     
