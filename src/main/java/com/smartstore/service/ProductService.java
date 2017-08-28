@@ -9,6 +9,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.smartstore.entity.Product;
+import com.smartstore.model.ProductModel;
+import com.smartstore.repository.ProductDetailRepository;
 import com.smartstore.repository.ProductRepository;
 
 @Service
@@ -17,6 +19,9 @@ public class ProductService {
 	@Autowired
 	ProductRepository productrepository;
 
+	@Autowired
+	ProductDetailRepository productDetailRepository;
+	
 	public String addProduct(Product product) {
 		productrepository.save(product);
 		return "Product added successfully";
@@ -32,6 +37,11 @@ public class ProductService {
 
 	public List<Product> getAllProduct() {
 		return productrepository.findAll();
+	}
+	
+	public List<ProductModel> getProductDetailById(Integer productId){
+		
+		return productDetailRepository.getProductDetailById(productId);
 	}
 
 }

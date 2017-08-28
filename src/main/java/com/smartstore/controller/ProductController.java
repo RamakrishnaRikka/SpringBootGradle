@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartstore.entity.Product;
+import com.smartstore.model.ProductModel;
 import com.smartstore.service.ProductService;
 
 @RestController
@@ -38,6 +39,11 @@ public class ProductController {
 	@GetMapping("/products")
 	public List<Product> getAllProduct() {
 		return productService.getAllProduct();
+	}
+
+	@GetMapping("/productDetail/{id}")
+	public List<ProductModel> getProductDetailById(@PathVariable Integer id) {
+		return productService.getProductDetailById(id);
 	}
 
 }
